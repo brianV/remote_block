@@ -17,6 +17,50 @@ function remote_block_help($path, $arg) {
 }
 
 /**
+* Generates the embed code itself.
+*/
+function remote_block_get_embed_code($bid) {
+
+  if (!remote_block_embed_allowed($bid) {
+    return '';
+  }
+
+  $data = remote_block_get_embed_data($bid);
+
+  $embed_code = <<<EOF
+<!-- begin embed code -->
+<div id="iframe">
+  <iframe src="$data->src" width="$data->width" height="$data->height" scrolling="no" frameborder="0"></iframe>
+</div>
+<!-- end embed code -->
+EOF;
+  return $embed_code;
+}
+
+/**
+ * Check if this block is allowed to be embedded.
+ */
+function remote_block_embed_allowed($bid) {
+ // @TODO: Stub.
+ return TRUE;
+}
+
+/**
+ * Get width and height specified for this widget.
+ */
+function remote_block_get_embed_data($bid) {
+ // @TODO: Stub.
+ $data = array(
+   'width' => 100,
+   'height' => 100,
+   'src' => "http://www.example.com/remote-block/%/%/%",
+ );
+ return TRUE;
+}
+
+
+
+/**
  * Implements hook_menu().
  */
 function remote_block_menu() {
