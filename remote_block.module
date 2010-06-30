@@ -55,7 +55,7 @@ function remote_block_get_embed_data($bid) {
    'height' => 100,
    'src' => "http://www.example.com/remote-block/%/%/%",
  );
- return TRUE;
+ return $data;
 }
 
 
